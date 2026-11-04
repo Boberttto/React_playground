@@ -1,0 +1,61 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.stack {
+  display: grid;
+  gap: $space-6;
+}
+
+.card {
+  @include card;
+  display: grid;
+  gap: $space-3;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  align-items: center;
+
+  :global(.btn)[aria-pressed='true'] {
+    border-color: c(accent);
+    color: c(accent);
+  }
+}
+
+.status {
+  color: c(muted);
+  font-size: 0.9rem;
+}
+
+.panel,
+.results {
+  min-height: 120px;
+  max-height: 320px;
+  overflow-y: auto;
+  transition: opacity 150ms ease;
+}
+
+// Visual cue for "this content is stale / about to change".
+.pending {
+  opacity: 0.5;
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+  font-size: 0.9rem;
+  color: c(muted);
+}
+
+.meta {
+  margin: 0 0 $space-2;
+  color: c(muted);
+  font-size: 0.9rem;
+}
+
+.list {
+  margin: 0;
+  padding-left: $space-6;
+}

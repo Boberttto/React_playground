@@ -1,0 +1,49 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.form {
+  @include card;
+  display: grid;
+  gap: $space-4;
+  max-width: 28rem;
+
+  button[type='submit'] {
+    justify-self: start;
+  }
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+
+  label {
+    font-weight: 500;
+  }
+
+  [aria-invalid='true'] {
+    border-color: c(danger);
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  cursor: pointer;
+}
+
+.error {
+  margin: 0;
+  color: c(danger);
+  font-size: 0.875rem;
+}
+
+.success {
+  @include card;
+  display: block;
+  margin: 0;
+  max-width: 28rem;
+  border-color: c(success);
+  color: c(success);
+  font-weight: 600;
+}

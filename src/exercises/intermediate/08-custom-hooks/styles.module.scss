@@ -1,0 +1,31 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.wrapper {
+  @include card;
+  display: grid;
+  gap: $space-3;
+  max-width: 420px;
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+  font-weight: 600;
+}
+
+.meta {
+  margin: 0;
+  color: c(muted);
+  font-size: 0.9rem;
+}
+
+.list {
+  margin: 0;
+  padding-left: $space-6;
+  transition: opacity 150ms ease;
+
+  &[data-stale='true'] {
+    opacity: 0.5;
+  }
+}

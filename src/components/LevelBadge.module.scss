@@ -1,0 +1,19 @@
+@use 'tokens' as *;
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+// Generates .junior / .intermediate / .senior from the $levels map.
+@each $name, $color in $levels {
+  .#{$name} {
+    background: $color;
+  }
+}

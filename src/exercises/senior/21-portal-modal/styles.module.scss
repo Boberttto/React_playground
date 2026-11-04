@@ -1,0 +1,74 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.demo {
+  display: grid;
+  gap: $space-3;
+  justify-items: start;
+
+  p {
+    margin: 0;
+    color: c(muted);
+  }
+}
+
+// Makes the page scrollable so the scroll lock is observable.
+.filler {
+  height: 150vh;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: $space-4;
+  background: rgb(0 0 0 / 55%);
+}
+
+.dialog {
+  @include card;
+  position: relative;
+  width: min(100%, 440px);
+  max-height: calc(100vh - #{$space-8});
+  overflow-y: auto;
+  padding: $space-6;
+  box-shadow: 0 20px 60px rgb(0 0 0 / 35%);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.title {
+  margin: 0 0 $space-4;
+  font-size: 1.2rem;
+}
+
+.close {
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  padding: $space-1 $space-2;
+  line-height: 1;
+}
+
+.form {
+  display: grid;
+  gap: $space-3;
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+  font-size: 0.9rem;
+  color: c(muted);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-2;
+  margin-top: $space-2;
+}

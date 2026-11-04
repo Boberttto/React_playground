@@ -1,0 +1,78 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.sidebar {
+  background: c(surface);
+  border-right: 1px solid c(border);
+  padding: $space-4;
+  overflow-y: auto;
+
+  @include up(md) {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+  margin-bottom: $space-4;
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: c(text);
+  @include focus-ring;
+}
+
+.group {
+  margin-bottom: $space-4;
+}
+
+.groupTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 $space-2;
+}
+
+@each $name, $color in $levels {
+  .#{$name} {
+    color: $color;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: flex;
+  gap: $space-2;
+  padding: $space-1 $space-2;
+  border-radius: $radius-sm;
+  color: c(text);
+  text-decoration: none;
+  font-size: 0.92rem;
+  @include focus-ring;
+
+  &:hover {
+    background: c(surface-2);
+  }
+
+  &[aria-current='page'] {
+    background: c(accent);
+    color: c(accent-contrast);
+  }
+}
+
+.num {
+  font-family: $font-mono;
+  opacity: 0.6;
+}

@@ -1,0 +1,61 @@
+// Design tokens. Sass variables for compile-time values (breakpoints, spacing scale),
+// CSS custom properties for anything that changes at runtime (theme colors).
+// Import from any .scss file with:  @use 'tokens' as *;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+
+$font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+$breakpoints: (
+  sm: 640px,
+  md: 900px,
+  lg: 1200px,
+);
+
+$levels: (
+  junior: #16a34a,
+  intermediate: #d97706,
+  senior: #dc2626,
+);
+
+// Theme colors are exposed as CSS variables so components can read them at runtime.
+$light: (
+  bg: #f7f7f9,
+  surface: #ffffff,
+  surface-2: #f0f1f4,
+  text: #1b1d23,
+  muted: #61656f,
+  border: #e2e4e9,
+  accent: #0d7fa5,
+  accent-contrast: #ffffff,
+  danger: #c62828,
+  success: #2e7d32,
+);
+
+$dark: (
+  bg: #0f1115,
+  surface: #171a21,
+  surface-2: #1f232c,
+  text: #e7e9ee,
+  muted: #9aa0ab,
+  border: #2b303b,
+  accent: #4cc3e6,
+  accent-contrast: #0b0d10,
+  danger: #ef5350,
+  success: #66bb6a,
+);
+
+// Shorthand to read a theme variable: color: c(text);
+@function c($name) {
+  @return var(--c-#{$name});
+}

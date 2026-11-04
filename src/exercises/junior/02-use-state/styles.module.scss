@@ -1,0 +1,52 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.counter {
+  @include card;
+  display: grid;
+  gap: $space-4;
+  max-width: 32rem;
+}
+
+.count {
+  display: block;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+  max-width: 8rem;
+  color: c(muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: $space-1 $space-2;
+    border-radius: $radius-sm;
+    background: c(surface-2);
+    font-family: $font-mono;
+    font-size: 0.9rem;
+  }
+}

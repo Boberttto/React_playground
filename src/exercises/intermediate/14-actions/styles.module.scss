@@ -1,0 +1,49 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.card {
+  @include card;
+  max-width: 520px;
+}
+
+.title {
+  margin: 0 0 $space-2;
+}
+
+.muted {
+  margin: 0 0 $space-4;
+  color: c(muted);
+  font-size: 0.9rem;
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-2;
+  flex-wrap: wrap;
+
+  &[aria-busy='true'] {
+    cursor: progress;
+  }
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+  flex: 1 1 220px;
+  font-weight: 600;
+}
+
+.error,
+.success {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.error {
+  color: c(danger);
+}
+
+.success {
+  color: c(success);
+}

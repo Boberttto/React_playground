@@ -1,0 +1,76 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+@use 'reset';
+
+:root {
+  color-scheme: light dark;
+  @include theme-vars($light);
+  font-family: $font-sans;
+  line-height: 1.55;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    @include theme-vars($dark);
+  }
+}
+
+:root[data-theme='dark'] {
+  @include theme-vars($dark);
+}
+
+body {
+  background: c(bg);
+  color: c(text);
+  min-height: 100vh;
+}
+
+a {
+  color: c(accent);
+}
+
+code,
+pre,
+kbd {
+  font-family: $font-mono;
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  background: c(surface-2);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+pre {
+  background: c(surface-2);
+  border: 1px solid c(border);
+  border-radius: $radius-sm;
+  padding: $space-4;
+  overflow-x: auto;
+}
+
+// Generic helpers exercises may use (global on purpose).
+.btn {
+  @include button-base;
+}
+
+.btn-primary {
+  @include button-base;
+  background: c(accent);
+  color: c(accent-contrast);
+  border-color: c(accent);
+}
+
+.input {
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  border: 1px solid c(border);
+  background: c(surface);
+  color: c(text);
+  @include focus-ring;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}

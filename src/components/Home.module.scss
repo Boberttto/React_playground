@@ -1,0 +1,41 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.home {
+  padding: $space-8 $space-6;
+  max-width: 820px;
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: c(muted);
+}
+
+.steps li + li {
+  margin-top: $space-2;
+}
+
+.grid {
+  display: grid;
+  gap: $space-4;
+  margin-top: $space-8;
+
+  @include up(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  @include card;
+  @include focus-ring;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  align-items: flex-start;
+  color: c(text);
+  text-decoration: none;
+
+  &:hover {
+    border-color: c(accent);
+  }
+}

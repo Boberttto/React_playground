@@ -1,0 +1,56 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.stack {
+  display: grid;
+  gap: $space-3;
+  max-width: 560px;
+
+  h3 {
+    margin: $space-4 0 0;
+    font-size: 1rem;
+  }
+}
+
+.tabs {
+  @include card;
+  padding: 0;
+  overflow: hidden;
+}
+
+.list {
+  display: flex;
+  border-bottom: 1px solid c(border);
+  background: c(surface-2);
+}
+
+.tab {
+  padding: $space-2 $space-4;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: c(muted);
+  font: inherit;
+  cursor: pointer;
+  @include focus-ring;
+
+  &:hover:not(:disabled) {
+    color: c(text);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.selected {
+  color: c(accent);
+  border-bottom-color: c(accent);
+  font-weight: 600;
+}
+
+.panel {
+  padding: $space-4;
+  @include focus-ring;
+}

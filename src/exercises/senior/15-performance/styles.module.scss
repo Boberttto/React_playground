@@ -1,0 +1,72 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.stack {
+  display: grid;
+  gap: $space-4;
+}
+
+.dashboard {
+  @include card;
+  display: grid;
+  gap: $space-3;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  align-items: flex-end;
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+  font-size: 0.9rem;
+  color: c(muted);
+}
+
+.meta {
+  margin: 0;
+  color: c(muted);
+  font-size: 0.9rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid c(border);
+  border-radius: $radius-sm;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: $space-2 $space-3;
+  border: 0;
+  border-bottom: 1px solid c(border);
+  background: transparent;
+  color: c(text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  @include focus-ring;
+
+  &:hover {
+    background: c(surface-2);
+  }
+
+  &[aria-pressed='true'] {
+    background: c(accent);
+    color: c(accent-contrast);
+  }
+}
+
+.price {
+  font-family: $font-mono;
+  font-size: 0.85rem;
+}

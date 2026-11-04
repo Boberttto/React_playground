@@ -1,0 +1,59 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.view {
+  padding: $space-6;
+  max-width: 1100px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-4;
+}
+
+.path {
+  color: c(muted);
+}
+
+.tabs {
+  display: flex;
+  gap: $space-1;
+  border-bottom: 1px solid c(border);
+  overflow-x: auto;
+}
+
+.tab {
+  padding: $space-2 $space-4;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: c(muted);
+  text-transform: capitalize;
+  cursor: pointer;
+  white-space: nowrap;
+  @include focus-ring;
+
+  &[aria-selected='true'] {
+    color: c(text);
+    border-bottom-color: c(accent);
+    font-weight: 600;
+  }
+}
+
+.panel {
+  padding-top: $space-6;
+}
+
+.stage {
+  @include card;
+  padding: $space-6;
+}
+
+.spoiler summary {
+  cursor: pointer;
+  color: c(accent);
+  margin-bottom: $space-4;
+}
