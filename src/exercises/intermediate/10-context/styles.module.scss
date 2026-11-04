@@ -1,0 +1,73 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// The demo has its own local light/dark palette, independent from the playground theme.
+.shell {
+  --demo-bg: #f8fafc;
+  --demo-surface: #ffffff;
+  --demo-text: #0f172a;
+  --demo-muted: #64748b;
+  --demo-border: #e2e8f0;
+
+  display: grid;
+  gap: $space-3;
+  padding: $space-4;
+  border-radius: $radius-lg;
+  background: var(--demo-bg);
+  color: var(--demo-text);
+  transition: background 200ms ease, color 200ms ease;
+
+  @include up(sm) {
+    grid-template-columns: 1fr 1fr;
+
+    > .muted {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+.dark {
+  --demo-bg: #0b1120;
+  --demo-surface: #1e293b;
+  --demo-text: #e2e8f0;
+  --demo-muted: #94a3b8;
+  --demo-border: #334155;
+}
+
+.panel {
+  background: var(--demo-surface);
+  border: 1px solid var(--demo-border);
+  border-radius: $radius-md;
+  padding: $space-4;
+}
+
+.panelTitle {
+  margin: 0 0 $space-3;
+  font-size: 1rem;
+}
+
+.muted {
+  margin: 0;
+  color: var(--demo-muted);
+}
+
+.form,
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-2;
+  flex-wrap: wrap;
+
+  p {
+    margin: 0;
+  }
+}
+
+.row {
+  align-items: center;
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+}

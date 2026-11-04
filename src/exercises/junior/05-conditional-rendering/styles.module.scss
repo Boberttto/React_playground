@@ -1,0 +1,75 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.demo {
+  display: grid;
+  gap: $space-4;
+
+  @include up(md) {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}
+
+.panel {
+  @include card;
+  display: grid;
+  gap: $space-3;
+}
+
+.row {
+  display: flex;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-2;
+
+  button[aria-pressed='true'] {
+    border-color: c(accent);
+    color: c(accent);
+  }
+}
+
+.badge {
+  min-width: 1.5em;
+  padding: 0 $space-1;
+  border-radius: 999px;
+  background: c(danger);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.warning {
+  padding: $space-2 $space-3;
+  border-left: 4px solid #d97706;
+  border-radius: $radius-sm;
+  background: c(surface-2);
+}
+
+.error {
+  padding: $space-3;
+  border: 1px solid c(danger);
+  border-radius: $radius-sm;
+  color: c(danger);
+
+  p {
+    margin: 0 0 $space-2;
+  }
+}
+
+.empty {
+  margin: 0;
+  color: c(muted);
+  font-style: italic;
+}
+
+.list {
+  margin: 0;
+  padding-left: $space-6;
+}

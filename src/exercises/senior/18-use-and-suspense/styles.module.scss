@@ -1,0 +1,67 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.stack {
+  display: grid;
+  gap: $space-4;
+  max-width: 560px;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  align-items: center;
+
+  :global(.btn)[aria-pressed='true'] {
+    border-color: c(accent);
+    color: c(accent);
+  }
+}
+
+.check {
+  display: inline-flex;
+  gap: $space-1;
+  align-items: center;
+  color: c(muted);
+}
+
+.profile {
+  @include card;
+
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  h3 {
+    margin-top: $space-4;
+    font-size: 1rem;
+  }
+}
+
+.bio {
+  margin: $space-1 0 0;
+  color: c(muted);
+}
+
+.posts {
+  margin: $space-2 0 0;
+  padding-left: $space-6;
+}
+
+.note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: c(muted);
+}
+
+.error {
+  @include card;
+  border-color: c(danger);
+
+  p {
+    margin: 0 0 $space-2;
+    color: c(danger);
+  }
+}

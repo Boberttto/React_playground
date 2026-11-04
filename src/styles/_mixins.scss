@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use 'tokens' as *;
+
+// Media query helper:  @include up(md) { ... }
+@mixin up($bp) {
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+// Visible keyboard focus ring.
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid c(accent);
+    outline-offset: 2px;
+  }
+}
+
+@mixin card {
+  background: c(surface);
+  border: 1px solid c(border);
+  border-radius: $radius-md;
+  padding: $space-4;
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  border-radius: $radius-sm;
+  border: 1px solid c(border);
+  background: c(surface-2);
+  color: c(text);
+  font: inherit;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+  @include focus-ring;
+
+  &:hover:not(:disabled) {
+    border-color: c(accent);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Emit `--c-<name>: value` for every entry of a theme map.
+@mixin theme-vars($theme) {
+  @each $name, $value in $theme {
+    --c-#{$name}: #{$value};
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

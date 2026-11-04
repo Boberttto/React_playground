@@ -1,0 +1,15 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.layout {
+  display: grid;
+  min-height: 100vh;
+
+  @include up(md) {
+    grid-template-columns: 290px 1fr;
+  }
+}
+
+.main {
+  min-width: 0;
+}

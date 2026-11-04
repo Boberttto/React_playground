@@ -1,0 +1,43 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.converter {
+  @include card;
+  display: grid;
+  gap: $space-4;
+  max-width: 24rem;
+  margin: 0;
+
+  legend {
+    padding: 0 $space-2;
+    font-weight: 600;
+  }
+}
+
+.field {
+  display: grid;
+  gap: $space-1;
+
+  label {
+    color: c(muted);
+  }
+}
+
+.boils,
+.calm {
+  display: block;
+  margin: 0;
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  font-weight: 600;
+}
+
+.boils {
+  background: c(surface-2);
+  color: c(danger);
+}
+
+.calm {
+  background: c(surface-2);
+  color: c(accent);
+}

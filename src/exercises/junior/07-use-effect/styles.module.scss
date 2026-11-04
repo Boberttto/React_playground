@@ -1,0 +1,59 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.demo {
+  display: grid;
+  gap: $space-4;
+  max-width: 32rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-2;
+}
+
+.userId {
+  min-width: 6rem;
+  font-family: $font-mono;
+  text-align: center;
+}
+
+.profile {
+  @include card;
+
+  h2 {
+    margin: 0 0 $space-3;
+    font-size: 1.2rem;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: $space-1 $space-4;
+    margin: 0;
+  }
+
+  dt {
+    color: c(muted);
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.muted {
+  display: block;
+  margin: 0;
+  color: c(muted);
+}
+
+.error {
+  margin: 0;
+  padding: $space-3;
+  border: 1px solid c(danger);
+  border-radius: $radius-sm;
+  color: c(danger);
+}

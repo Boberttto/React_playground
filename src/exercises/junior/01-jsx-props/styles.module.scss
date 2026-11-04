@@ -1,0 +1,36 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.grid {
+  display: grid;
+  gap: $space-4;
+
+  @include up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  @include card;
+  display: flex;
+  gap: $space-4;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.role {
+  margin: $space-1 0 $space-2;
+  color: c(muted);
+}
